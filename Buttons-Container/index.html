@@ -1,0 +1,70 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Buttons Grid</title>
+        <style>
+            .container {
+                width: 75%;
+                margin: auto;
+            }
+
+            .buttonClass {
+                width : 30%;
+                height : 48px;
+                font-size : 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+          <button id="btn1" class="buttonClass">1</button>
+          <button id="btn2" class="buttonClass">2</button>
+          <button id="btn3" class="buttonClass">3</button>
+          <button id="btn4" class="buttonClass">4</button>
+          <button id="btn5" class="buttonClass">5</button>
+          <button id="btn6" class="buttonClass">6</button>
+          <button id="btn7" class="buttonClass">7</button>
+          <button id="btn8" class="buttonClass">8</button>
+          <button id="btn9" class="buttonClass">9</button>
+        </div>
+    <script>
+        var btns = document.getElementById("btn5");
+        btns.onclick = function(){
+           var temp = document.getElementById("btn1").innerHTML;
+           this.rotateBtns(1);
+           this.rotateBtns(4);
+           this.rotateBtns(7);
+           this.rotateBtns(8);
+           this.rotateBtns(9);
+           this.rotateBtns(6);
+           this.rotateBtns(3);
+           var btn2 = document.getElementById("btn2");
+           btn2.innerHTML = temp;
+        };
+        btns.rotateBtns = function(pos){
+            var btn = document.getElementById("btn" + pos);
+            switch(pos){
+                case 2:
+                case 3: //get east
+                        pos -= 1;
+                        break;
+                case 6:
+                case 9: //get north
+                        pos -= 3;
+                        break;
+                case 7:
+                case 8: //get west
+                        pos += 1;
+                        break;
+                case 1:
+                case 4: //get south
+                        pos += 3;
+                        break;
+            }
+            btn.innerHTML = document.getElementById("btn" + pos).innerHTML;
+        };
+    </script>
+    </body>
+</html>
