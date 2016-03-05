@@ -1,2 +1,2 @@
 # Javascript-codes
-some js demos
+Js demos(some of them inside the HTML)
